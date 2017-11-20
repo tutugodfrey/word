@@ -4,7 +4,10 @@
   "description": "the word function accept a string and return the json representation of the occurence of each word.",
   "main": "src/word.js",
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha trans/test/test.js",
+    "build": "babel main -s -d trans",
+    "builds":"babel . -d transpile --ignore=\"node_modules\""
+
   },
   "repository": {
     "type": "git",
