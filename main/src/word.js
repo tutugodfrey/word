@@ -1,7 +1,9 @@
 
 
 export const word = function(text) {
-	if(typeof text !== "string") {
+	if(typeof text === 'number') {
+		return false;
+	} else if(Array.isArray(text)) {
 		return false;
 	}  else {
 		const wordOccurence = {};

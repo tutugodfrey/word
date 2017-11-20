@@ -19,7 +19,10 @@ var jsonObject = {
 describe('word', function () {
 	describe('invalid input', function () {
 		it('Should return false for 0', function () {
-			assert.equal((0, _word.word)(0), false);
+			expect((0, _word.word)(9)).to.equal(false);
+		});
+		it('Should return false for 0', function () {
+			expect((0, _word.word)([])).to.deep.equal(false);
 		});
 	});
 

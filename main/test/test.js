@@ -12,7 +12,10 @@ const jsonObject = {
 describe('word', () => {
 	describe('invalid input', () => {
 		it('Should return false for 0', () => {
-			assert.equal(word(0), false);
+			expect(word(9)).to.equal(false);
+		});
+		it('Should return false for 0', () => {
+			expect(word([])).to.deep.equal(false);
 		});
 	});
 

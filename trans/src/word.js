@@ -1,10 +1,12 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 var word = exports.word = function word(text) {
-	if (typeof text !== "string") {
+	if (typeof text === 'number') {
+		return false;
+	} else if (Array.isArray(text)) {
 		return false;
 	} else {
 		var wordOccurence = {};
