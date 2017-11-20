@@ -28,12 +28,16 @@ describe('word', function () {
 
 	describe('valid input', function () {
 		it('should return a json object', function () {
-			// assert.equal(word("olly olly in come free"), jsonObject)
+			// test sentence with only without punctuations
 			expect((0, _word.word)("olly olly in come free")).to.deep.equal(jsonObject);
 		});
-		it('should return a json object', function () {
-			// assert.equal(word("olly olly in come free"), jsonObject)
+		it('should return a json object "olly olly in come free"', function () {
+			// test for word with punctations
 			expect((0, _word.word)("olly, olly, in come free")).to.deep.equal(jsonObject);
+		});
+		it('should return a json object for value "word"', function () {
+			// test for word with punctations
+			expect((0, _word.word)("word")).to.deep.equal({ "word": 1 });
 		});
 	});
 });

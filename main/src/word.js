@@ -29,4 +29,3 @@ export const word = function(text) {
 		return wordOccurence;
 	}
 }
-//console.log(word("welcome to andela bootcamp, hope you enjoy you codding day"));
