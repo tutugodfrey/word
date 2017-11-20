@@ -28,6 +28,10 @@ describe('word', function () {
 			// assert.equal(word("olly olly in come free"), jsonObject)
 			expect((0, _word.word)("olly olly in come free")).to.deep.equal(jsonObject);
 		});
+		it('should return a json object', function () {
+			// assert.equal(word("olly olly in come free"), jsonObject)
+			expect((0, _word.word)("olly, olly, in come free")).to.deep.equal(jsonObject);
+		});
 	});
 });
 //# sourceMappingURL=test.js.map

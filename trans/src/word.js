@@ -8,12 +8,7 @@ var word = exports.word = function word(text) {
 		return false;
 	} else {
 		var wordOccurence = {};
-		var jsonObject = {
-			"olly": 2,
-			"in": 1,
-			"come": 1,
-			"free": 1
-		};
+		var punctuations = /[^a-z]$/;
 		var wordArray = text.split(' ');
 		var _iteratorNormalCompletion = true;
 		var _didIteratorError = false;
@@ -23,10 +18,19 @@ var word = exports.word = function word(text) {
 			for (var _iterator = wordArray[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 				var _word = _step.value;
 
-				if (!wordOccurence[_word]) {
-					wordOccurence[_word] = 1;
+				if (_word.match(punctuations)) {
+					var wordToAdd = _word.substr(0, _word.length - 1);
+					if (!wordOccurence[wordToAdd]) {
+						wordOccurence[wordToAdd] = 1;
+					} else {
+						wordOccurence[wordToAdd] = wordOccurence[wordToAdd] + 1;
+					}
 				} else {
-					wordOccurence[_word] = wordOccurence[_word] + 1;
+					if (!wordOccurence[_word]) {
+						wordOccurence[_word] = 1;
+					} else {
+						wordOccurence[_word] = wordOccurence[_word] + 1;
+					}
 				}
 			}
 		} catch (err) {

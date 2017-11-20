@@ -21,6 +21,10 @@ describe('word', () => {
 			// assert.equal(word("olly olly in come free"), jsonObject)
 			expect(word("olly olly in come free")).to.deep.equal(jsonObject)
 		});
+		it('should return a json object', () => {
+			// assert.equal(word("olly olly in come free"), jsonObject)
+			expect(word("olly, olly, in come free")).to.deep.equal(jsonObject)
+		});
 	});
 
 
