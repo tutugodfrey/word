@@ -2,7 +2,13 @@
 import chai from 'chai';
 import { word } from './../src/word';
 const assert = chai.assert;
-
+const expect = chai.expect
+const jsonObject = {
+			"olly":2,
+			"in":1,
+			"come":1,
+			"free":1
+		}
 describe('word', () => {
 	describe('invalid input', () => {
 		it('Should return false for 0', () => {
@@ -12,15 +18,10 @@ describe('word', () => {
 
 	describe('valid input', () => {
 		it('should return a json object', () => {
-			assert.equal(word('i love what i do so much'), {
-				'i':2,
-				'love':1,
-				'what':1,
-				'do': 1, 
-				'so':1,
-				'much':1
-			})
-		})
-	})
+			// assert.equal(word("olly olly in come free"), jsonObject)
+			expect(word("olly olly in come free")).to.deep.equal(jsonObject)
+		});
+	});
+
 
 });
