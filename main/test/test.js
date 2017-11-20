@@ -17,19 +17,22 @@ describe('word', () => {
 		it('Should return false for 0', () => {
 			expect(word([])).to.deep.equal(false);
 		});
+		it('Should return false for and array of string', () => {
+			expect(word(["olly", "olly", "in", "come", "free"])).to.deep.equal(false);
+		});
+		it('Should return false for an object', () => {
+			expect(word([jsonObject])).to.deep.equal(false);
+		});
 	});
 
 	describe('valid input', () => {
 		it('should return a json object', () => {
-			// test sentence with only without punctuations
 			expect(word("olly olly in come free")).to.deep.equal(jsonObject)
 		});
 		it('should return a json object "olly olly in come free"', () => {
-			// test for word with punctations
 			expect(word("olly, olly, in come free")).to.deep.equal(jsonObject)
 		});
 		it('should return a json object for value "word"', () => {
-			// test for word with punctations
 			expect(word("word")).to.deep.equal({"word":1})
 		});
 	});

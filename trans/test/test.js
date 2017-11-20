@@ -24,19 +24,22 @@ describe('word', function () {
 		it('Should return false for 0', function () {
 			expect((0, _word.word)([])).to.deep.equal(false);
 		});
+		it('Should return false for and array of string', function () {
+			expect((0, _word.word)(["olly", "olly", "in", "come", "free"])).to.deep.equal(false);
+		});
+		it('Should return false for an object', function () {
+			expect((0, _word.word)([jsonObject])).to.deep.equal(false);
+		});
 	});
 
 	describe('valid input', function () {
 		it('should return a json object', function () {
-			// test sentence with only without punctuations
 			expect((0, _word.word)("olly olly in come free")).to.deep.equal(jsonObject);
 		});
 		it('should return a json object "olly olly in come free"', function () {
-			// test for word with punctations
 			expect((0, _word.word)("olly, olly, in come free")).to.deep.equal(jsonObject);
 		});
 		it('should return a json object for value "word"', function () {
-			// test for word with punctations
 			expect((0, _word.word)("word")).to.deep.equal({ "word": 1 });
 		});
 	});
